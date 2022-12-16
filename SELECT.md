@@ -33,3 +33,43 @@ SELECT * FROM city where Name like '%c%'; -- c를 포함한 단어
 SELECT * FROM city where Name like '%b'; -- n개만큼 앞에 문자열중 b로 끝나는걸 출력 ex) zagreb
 SELECT * FROM city where Name like '__b'; -- _는 앞에 글자수 만큼을 표시한다 ex) acb
 SELECT CountryCode FROM  city group by CountryCode; -- 중복제거된 그룹으로 출력 (특정 컬럼기준으로 묶어준다)
+SELECT * FROM city;
+UPDATE city set CountryCode = 'KOR' where ID = 1; 
+UPDATE city set Name = 'Dong' where ID = 1;
+INSERT INTO city (ID, Name,CountryCode, District, Population) values(null,'gimo','KOR','KOREA',10);
+delete FROM city where ID = 2;
+SELECT * FROM city where Name = 'gimo';
+
+SELECT CountryCode FROM city where CountryCode = 'KOR';
+SELECT distinct CountryCode from city where CountryCode = 'KOR';
+use world;
+show tables;
+select distinct CountryCode from city where CountryCode = 'KOR';
+show tables;
+SELECT * from city; 
+insert  into city( ID, Name, CountryCode, District, Population) values (15623,'dddong','KOR','koko',121235);
+SELECT * FROM city where ID = 15623;
+delete  from city where ID = 15623; 
+delete from city where ID = 3;
+select * from city where ID = 3;
+SELECT * FROM city where CountryCode = 'KOR' AND Population >= 1000000;
+SELECT * FROM city where CountryCode = 'KOR' OR CountryCode = 'CHN' OR CountryCode = 'JPN';
+SELECT * FROM city where CountryCode != 'KOR' AND Population >= 1000000;
+SELECT * FROM city where CountryCode != 'KOR' AND Population >= 1000000;
+SELECT * FROM city where CountryCode in ('KOR','CHN','JPN');
+SELECT * FROM city where CountryCode = 'KOR' or CountryCode = 'CHN' or CountryCode = 'JPN' order by CountryCode = 'KOR' desc;
+SELECT * FROM city where CountryCode = 'KOR' AND (Population between 1000000 and 5000000);
+SELECT * FROM city where CountryCode = 'KOR' AND (Population >= 1000000 and Population <= 5000000);
+SELECT * FROM city where CountryCode = 'KOR' order by Population desc;
+SELECT CountryCode, Population FROM city order by CountryCode, Population desc;
+SELECT CountryCode, Population FROM city order by CountryCode, Population desc;
+SELECT * from city where CountryCode = 'KOR' order by Population desc limit 10;
+SELECT * FROM city where CountryCode = 'KOR' order by Population desc limit 10;
+SELECT count(*) from city where CountryCode = 'KOR';
+SELECT sum(Population) from city where CountryCode = 'KOR';
+SELECT avg(Population) from city where CountryCode = 'KOR';
+SELECT max(Population) from city where CountryCode = 'KOR';
+SELECT min(Population) from city where CountryCode = 'KOR';
+SELECT length(Name) from country;
+SELECT upper(mid(Name,1,3))from country;
+SELECT round(LifeExpentancy,0)from country;
